@@ -11,6 +11,19 @@ const Dashboard = ({ setAuth }) => {
     const [itemQuantity, setItemQuantity] = useState(0);     
     const [itemIdToDelete, setItemIdToDelete] = useState("");
 
+         // calling inventory
+  const [inv, setInv] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8081/inventory')
+    .then(response => response.json())
+    .then(data => {
+    
+        console.log("Complete Inventory", data)
+        setInv(data)
+})
+}, []);
+
   const getProfile = async () => {
     try {
       const res = await fetch("http://localhost:8081/dashboard/", {
@@ -63,7 +76,7 @@ const Dashboard = ({ setAuth }) => {
         const parseRes = await response.json();
         setItems(prevItems => [...prevItems, parseRes]);
         // Redirect to inventory list after item creation
-        window.location.href = "/inventory";
+       // window.location.href = "/inventory";
     } catch (err) {
         console.error(err.message);
     }
@@ -78,7 +91,7 @@ const deleteItem = async (itemId) => {
         });
         setItems(items.filter(item => item.id !== itemId));
         // Redirecting to the inventory list after deletion
-        window.location.href = "/inventory";
+       // window.location.href = "/inventory";
     } catch (err) {
         console.error(err.message);
     }
@@ -98,6 +111,7 @@ const deleteItem = async (itemId) => {
         await deleteItem(itemIdToDelete);
         setItemIdToDelete("");
     };
+
 
 
   useEffect(() => {
@@ -153,6 +167,17 @@ const deleteItem = async (itemId) => {
                     </li>
                 ))}
             </ul>
+            <div>
+            {Array.isArray(inv) && (
+                <ul>
+                    {inv.map((item, index) => (
+                        <li key={index}>
+                            {item.name} - {item.description} - Quantity: {item.quantity}
+                        </li>
+                    ))}
+                </ul>
+            )}
+            </div>
         </div>
   );
 };

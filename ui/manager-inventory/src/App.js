@@ -153,12 +153,7 @@ export default App;
 
 
 
-      // calling inventory
-      //   const [inv, setInv] = useState([]);
-//   // const [item_id, setItem_id] = useState([]);
-//   // const [item_name, setItem_name] = useState([]);
-//   // const [user_id, setUser_id] = useState([]);
-
+ 
 //   useEffect(() => {
 //     fetch('http://localhost:8081/inventory')
 //       .then(response => response.json())
