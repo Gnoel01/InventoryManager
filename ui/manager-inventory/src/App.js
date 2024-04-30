@@ -27,7 +27,7 @@ function App() {
 
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
     } catch (err) {
-      console.error(err.message);
+      console.log(err.message);
     }
   };
 

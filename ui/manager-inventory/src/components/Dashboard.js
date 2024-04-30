@@ -12,17 +12,17 @@ const Dashboard = ({ setAuth }) => {
     const [itemIdToDelete, setItemIdToDelete] = useState("");
 
          // calling inventory
-  const [inv, setInv] = useState([]);
+//   const [inv, setInv] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:8081/inventory')
-    .then(response => response.json())
-    .then(data => {
+//   useEffect(() => {
+//     fetch('http://localhost:8081/inventory')
+//     .then(response => response.json())
+//     .then(data => {
     
-        console.log("Complete Inventory", data)
-        setInv(data)
-})
-}, []);
+//         console.log("Complete Inventory", data)
+//         setInv(data)
+// })
+// }, []);
 
   const getProfile = async () => {
     try {
@@ -65,7 +65,7 @@ const Dashboard = ({ setAuth }) => {
   const createItem = async (itemName, itemDescription, itemQuantity) => {
     try {
         const body = { name: itemName, description: itemDescription, quantity: itemQuantity };
-        const response = await fetch("http://localhost:8081/api/items/add", {
+        const response = await fetch("http://localhost:8081/items/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const Dashboard = ({ setAuth }) => {
 };
 const deleteItem = async (itemId) => {
     try {
-        await fetch(`http://localhost:8081/api/items/delete/${itemId}`, {
+        await fetch(`http://localhost:8081/items/delete/${itemId}`, {
             method: "DELETE",
             headers: {
                 jwt_token: localStorage.token

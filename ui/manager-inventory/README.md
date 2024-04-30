@@ -1,3 +1,56 @@
+Getting started with Inventory Manager App
+
+1 - You will run an nmp install for both the api extention in the terminal and the ui/manager-inventory extention.
+
+an example would look like the following:  ~/projects/inventoryM/InventoryManager/api$  or ~/projects/inventoryM/InventoryManager/ui/manager-inventory$ 
+
+2- The localhost:3000/ extention will not work for testing functionality. You will need to go to /Dashboard or /login or /Resgister 
+
+3- You will get an error once you try to add and remove items from the inventory because I changed the api extention while testing a few things.
+
+4- before testing member functions you must first Register to be able to log in. The seed data was not salted or hashed, but once an account is created it is.
+   from there you can login and log out like normal.
+
+5- the buttons will work in the back end when trying to add an item, but in order for this to work without the red error popping up, 
+   you will need to remove the api portion in the api call for the post. You will find it on line 59 in the app.js file in the api folder.
+
+6- The delete function also appears to go through but it does not fully function properly. 
+   To not see the additional errors, you need to edit the api call for the delete as well. You will find it on line 101 in the app.js file in the api folder.
+
+7- This is as far as I was able to get during troubleshooting to display the inventory onto the page. If you have any questions please contact me!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
